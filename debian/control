@@ -1,15 +1,28 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-proglottis-gpgme
+Section: devel
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Antoine Beaupré <anarcat@debian.org>,
+           Dmitry Smirnov <onlyjob@debian.org>,
+Build-Depends: debhelper-compat (= 12),
+               dh-golang,
+               golang-any,
+               libgpgme-dev,
+# tests:
+    gpg-agent,
+Standards-Version: 4.5.0
+Homepage: https://github.com/proglottis/gpgme
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-proglottis-gpgme
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-proglottis-gpgme.git
+XS-Go-Import-Path: github.com/proglottis/gpgme
+Testsuite: autopkgtest-pkg-go
+Rules-Requires-Root: no
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-github-proglottis-gpgme-dev
+Architecture: all
+Depends: ${misc:Depends},
+         libgpgme-dev,
+Description: Go wrapper for the GPGME library
+ This library provides a Golang wrapper for the C GPGME library. If
+ you are looking to add OpenPGP support to a server application, you
+ should also consider the olang.org/x/crypto/openpgp library.

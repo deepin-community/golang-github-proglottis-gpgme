@@ -1,4 +1,21 @@
 #!/usr/bin/make -f
 
+export DH_GOLANG_EXCLUDES := github.com/proglottis/gpgme/examples
+export DH_GOLANG_EXCLUDES_ALL := 1
+#export DH_GOLANG_INSTALL_EXTRA := testdata/
+
 %:
-	dh $@
+	dh $@ --buildsystem=golang --with=golang
+
+# magic number, copy-pasted from <sys/un.h>
+UNIX_PATH_MAX=108
+
+# workaround bug in gpg-agent: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=847206
+#override_dh_auto_test:
+#	SOCKET_PATH="$(CURDIR)/testdata/gpghome/S.gpg-agent.browser" ; \
+#	if [ $${#SOCKET_PATH} -ge $(UNIX_PATH_MAX) ]; then \
+#	    echo "W: current path too long ($${#SOCKET_PATH} > $(UNIX_PATH_MAX)), skipping tests: $$SOCKET_PATH" ; \
+#	else \
+#	    echo "I: current path not too long, running tests ($${#SOCKET_PATH}): $$SOCKET_PATH"; \
+#	     dh_auto_test ;\
+#	fi

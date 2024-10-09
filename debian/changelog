@@ -1,5 +1,46 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-github-proglottis-gpgme (0.1.1-2) unstable; urgency=medium
 
-  * Initial release
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Jelmer Vernooĳ <jelmer@debian.org>  Tue, 29 Nov 2022 17:48:39 +0000
+
+golang-github-proglottis-gpgme (0.1.1-1) unstable; urgency=medium
+
+  * New upstream release.
+    + fixed CVE-2020-8945 (Closes: #951372).
+  * New patch to disable "TestContext_Encrypt" due to network access.
+  * rules: commented SOCKET_PATH workaround.
+  * Build-Depends += "gpg-agent".
+  * Rules-Requires-Root: no.
+  * Standards-Version: 4.5.0.
+  * Added myself to Uploaders.
+
+ -- Dmitry Smirnov <onlyjob@debian.org>  Wed, 11 Mar 2020 20:32:01 +1100
+
+golang-github-proglottis-gpgme (0.1.0-1) unstable; urgency=medium
+
+  * New upstream version 0.1.0
+  * bump standards version (no change)
+  * try to fix reproducible builds
+
+ -- Antoine Beaupré <anarcat@debian.org>  Sat, 09 Nov 2019 17:10:35 -0500
+
+golang-github-proglottis-gpgme (0.0~git20190226.8e0937a-1) unstable; urgency=medium
+
+  * New snapshot to fix dmarc-cat dep
+
+ -- Antoine Beaupré <anarcat@debian.org>  Sun, 27 Oct 2019 15:54:24 -0400
+
+golang-github-proglottis-gpgme (0.0~git20181127.3b0be09-2) unstable; urgency=medium
+
+  * correct gpgme dependency - it's still build
+
+ -- Antoine Beaupré <anarcat@debian.org>  Sun, 27 Jan 2019 18:07:20 -0500
+
+golang-github-proglottis-gpgme (0.0~git20181127.3b0be09-1) unstable; urgency=medium
+
+  * Initial release (Closes: #920387)
+
+ -- Antoine Beaupré <anarcat@debian.org>  Thu, 24 Jan 2019 18:09:21 -0500

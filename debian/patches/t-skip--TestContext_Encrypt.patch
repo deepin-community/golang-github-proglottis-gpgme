@@ -1,0 +1,17 @@
+Last-Update: 2020-03-11
+Forwarded: not-needed
+Author: Dmitry Smirnov <onlyjob@debian.org>
+Description: disables test (requires internet access).
+
+--- a/gpgme_test.go
++++ b/gpgme_test.go
+@@ -167,8 +167,9 @@
+ 	checkError(t, ctx.SetEngineInfo(testProto, "", testHomeDir))
+ }
+ 
+ func TestContext_Encrypt(t *testing.T) {
++t.Skip("DM-skipped")
+ 	ctx, err := New()
+ 	checkError(t, err)
+ 
+ 	keys, err := FindKeys("test@example.com", true)
